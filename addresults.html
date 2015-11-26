@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>
+Add Quiz Results
+</title>
+</head>
+<body>
+{% for message in get_flashed_messages() %}
+<div class=flash>{{ message }}</div>
+{% endfor %}
+<form name="addresults" action="/results/add" method="post">
+<select name="student_id">
+{% for student in students %}
+<option value="{{ student.student_id }}" name="student_id">{{ student.studentname }}</option>
+{% endfor %}
+</select>
+
+<select name="quiz_id">
+{% for quiz in quizzes %}
+<option value="{{ quiz.quiz_id }}">{{ quiz.subject }}</option>
+{% endfor %}
+</select><br>
+Score:<input type="text" name="score"></input>
+<input type="submit" value="Submit">
+</form>

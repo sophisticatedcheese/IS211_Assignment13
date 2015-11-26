@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Add Student Record</title>
+</head>
+<body>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+<h1>Add Student Record</h1>
+<form action="/student/add" method="post">
+First Name:<input type="text" name="first_name"></input><br>
+Last Name:<input type="text" name="last_name"></input><br>
+<input type = "submit" value="Submit"></input>
+</form>
+</body>
+</html>

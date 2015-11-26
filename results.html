@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>
+Quiz Results {% if studentname %} for {{ studentname }} {% endif %}
+</title>
+</head>
+<body>
+{% for message in get_flashed_messages() %}
+<div class=flash>{{ message }}</div>
+{% endfor %}
+<table name="results" border = "1">
+<tr>
+<th colspan="3" style="text-align: center"><strong>Quiz Results {% if studentname %} for {{ studentname }} {% endif %}</strong></th>
+</tr>
+<tr>
+<th>Quiz ID</th><th>Score</th>
+</tr>
+{% for result in results %}
+<tr><td>{{result.quiz_id}}</td><td>{{result.score|safe}}</td></tr>
+{% else %}
+<tr><strong>No Quiz Results</strong></tr>
+{% endfor %}
+</table>
